@@ -230,6 +230,12 @@ async def mtr_host(
 def get_host_info():
     """Get host configuration for both ping and MTR endpoints"""
     host_config = {
+        "Tainan, Taiwan - AS3462 HiNet (Chunghwa Telecom).": {
+            "ping_url": "http://ryanisyyds.asuscomm.com:9199/ping",
+            "mtr_url": "http://ryanisyyds.asuscomm.com:9199/mtr",
+            "api_key": os.environ.get("APIKEY3", ""),
+            "private": True,
+        },
         "Amsterdam, Netherlands - AS214677 Matteo Martelloni trading as DELUXHOST.": {
             "ping_url": os.environ.get("IP1", ""),
             "mtr_url": os.environ.get("IP1", "").replace("/ping", "/mtr") if os.environ.get("IP1") else "",
