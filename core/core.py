@@ -19,8 +19,9 @@ logger: logging.Logger = logging.getLogger("PingCat")
 
 hosts = [
     "Amsterdam, Netherlands - AS214677 Matteo Martelloni trading as DELUXHOST.",
-    "Taichung, Taiwan - AS17809 VEE TIME CORP.",
     "Kaohsiung, Taiwan - AS3462 HiNet (Chunghwa Telecom).",
+    "Taichung, Taiwan - AS17809 VEE TIME CORP.",
+    "Tainan, Taiwan - AS3462 HiNet (Chunghwa Telecom).",
     "Los Angeles, United States - AS36352 HostPapa.",
 ]
 
@@ -230,12 +231,6 @@ async def mtr_host(
 def get_host_info():
     """Get host configuration for both ping and MTR endpoints"""
     host_config = {
-        "Tainan, Taiwan - AS3462 HiNet (Chunghwa Telecom).": {
-            "ping_url": "http://ryanisyyds.asuscomm.com:9199/ping",
-            "mtr_url": "http://ryanisyyds.asuscomm.com:9199/mtr",
-            "api_key": os.environ.get("APIKEY3", ""),
-            "private": True,
-        },
         "Amsterdam, Netherlands - AS214677 Matteo Martelloni trading as DELUXHOST.": {
             "ping_url": os.environ.get("IP1", ""),
             "mtr_url": os.environ.get("IP1", "").replace("/ping", "/mtr") if os.environ.get("IP1") else "",
@@ -246,6 +241,12 @@ def get_host_info():
             "ping_url": os.environ.get("IP2", ""),
             "mtr_url": os.environ.get("IP2", "").replace("/ping", "/mtr") if os.environ.get("IP2") else "",
             "api_key": os.environ.get("APIKEY2", ""),
+            "private": True,
+        },
+        "Tainan, Taiwan - AS3462 HiNet (Chunghwa Telecom).": {
+            "ping_url": "http://ryanisyyds.asuscomm.com:9199/ping",
+            "mtr_url": "http://ryanisyyds.asuscomm.com:9199/mtr",
+            "api_key": os.environ.get("APIKEY3", ""),
             "private": True,
         },
         "Taichung, Taiwan - AS17809 VEE TIME CORP.": {
